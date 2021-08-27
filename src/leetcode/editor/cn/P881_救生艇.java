@@ -44,7 +44,7 @@ import java.util.Arrays;
 public class P881_救生艇 {
     public static void main(String[] args) {
         Solution solution = new P881_救生艇().new Solution();
-        System.out.println(solution.numRescueBoats(new int[]{1, 2, 3, 4 ,6}, 6));
+        System.out.println(solution.numRescueBoats(new int[]{3,2,2,1}, 3));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -56,7 +56,7 @@ public class P881_救生艇 {
 
             int left = 0;
             int right = people.length - 1;
-            while(left < right) {
+            while(left <= right) {
                 int val = people[left] + people[right];
                 if (val <= limit) {
                     left++;
