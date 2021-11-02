@@ -73,12 +73,14 @@
 
 package leetcode.editor.cn;
 
+import leetcode.editor.cn.classification.BFS;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 //Java：扫雷游戏
-class P529扫雷游戏 {
+class P529扫雷游戏 implements BFS {
 
     private static Boolean flag;
     public static void main(String[] args) {

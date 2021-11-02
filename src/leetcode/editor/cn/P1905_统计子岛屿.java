@@ -43,7 +43,9 @@ package leetcode.editor.cn;
 
 //统计子岛屿
 
-public class P1905_统计子岛屿 {
+import leetcode.editor.cn.classification.DFS;
+
+public class P1905_统计子岛屿 implements DFS {
     public static void main(String[] args) {
         Solution solution = new P1905_统计子岛屿().new Solution();
 

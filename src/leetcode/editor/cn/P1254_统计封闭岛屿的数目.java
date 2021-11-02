@@ -57,7 +57,9 @@ package leetcode.editor.cn;
 
 //统计封闭岛屿的数目
 
-public class P1254_统计封闭岛屿的数目 {
+import leetcode.editor.cn.classification.DFS;
+
+public class P1254_统计封闭岛屿的数目 implements DFS {
     public static void main(String[] args) {
         Solution solution = new P1254_统计封闭岛屿的数目().new Solution();
         int[][] grid = {

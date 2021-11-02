@@ -64,10 +64,12 @@ package leetcode.editor.cn;
 
 //打开转盘锁
 
+import leetcode.editor.cn.classification.BFS;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class P752_打开转盘锁 {
+public class P752_打开转盘锁 implements BFS {
     public static void main(String[] args) {
         Solution solution = new P752_打开转盘锁().new Solution();
         String[] str = {"0201","0101","0102","1212","2002"};

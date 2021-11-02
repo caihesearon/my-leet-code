@@ -1,5 +1,7 @@
 package leetcode.editor.cn;
 
+import leetcode.editor.cn.classification.DFS;
+
 /**
  * 这是本文的最后一道岛屿题目，作为压轴题，当然是最有意思的。
  * <p>
@@ -11,7 +13,7 @@ package leetcode.editor.cn;
  * @author caihe
  * @date 2021/10/28 10:59
  */
-public class P694_不同的岛屿数量 {
+public class P694_不同的岛屿数量 implements DFS {
 
     public static void main(String[] args) {
         int[][] grid = {

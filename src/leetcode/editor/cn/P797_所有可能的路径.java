@@ -66,42 +66,69 @@ package leetcode.editor.cn;
 //所有可能的路径
 
 
+import leetcode.editor.cn.classification.图;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class P797_所有可能的路径 {
+public class P797_所有可能的路径 implements 图 {
     public static void main(String[] args) {
         Solution solution = new P797_所有可能的路径().new Solution();
-        int[][] arr = new int[][]{{2},{}, {1}};
+        int[][] arr = new int[][]{{2}, {}, {1}};
         solution.allPathsSourceTarget(arr);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
-            List<List<Integer>> list = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
 
-            List<Integer> listSon = new ArrayList<>();
-            listSon.add(0);
-            deal1(0, graph, listSon, list);
-            return list;
+        public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+            // 用来保存
+            List<Integer> path = new ArrayList<>();
+            traverse(graph, path, 0);
+            return res;
         }
-        
-        private void deal1(int index, int[][] graph, List<Integer> listSon, List<List<Integer>> list) {
-            int[] ints = graph[index];
-            if (index == graph.length - 1) {
-                List<Integer> res = new ArrayList<>(listSon);
-                list.add(res);
+
+        private void traverse(int[][] graph, List<Integer> paths, Integer pos) {
+            // 将当前路径添加
+            paths.add(pos);
+            // 判断是否到达目的地
+            if (graph.length == pos - 1) {
+                res.add(paths);
+                paths.remove(paths.size() - 1);
                 return;
             }
-            for (int i = 0; i < ints.length; i++) {
-                int val = ints[i];
-                listSon.add(val);
-                deal1(val, graph, listSon, list);
-                listSon.remove(listSon.indexOf(val));
+            for (int nextPos : graph[pos]) {
+                traverse(graph, paths, nextPos);
             }
+            paths.remove(pos);
         }
+
+
+//        public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+//            List<List<Integer>> list = new ArrayList<>();
+//
+//            List<Integer> listSon = new ArrayList<>();
+//            listSon.add(0);
+//            deal1(0, graph, listSon, list);
+//            return list;
+//        }
+//        
+//        private void deal1(int index, int[][] graph, List<Integer> listSon, List<List<Integer>> list) {
+//            int[] ints = graph[index];
+//            if (index == graph.length - 1) {
+//                List<Integer> res = new ArrayList<>(listSon);
+//                list.add(res);
+//                return;
+//            }
+//            for (int i = 0; i < ints.length; i++) {
+//                int val = ints[i];
+//                listSon.add(val);
+//                deal1(val, graph, listSon, list);
+//                listSon.remove(listSon.indexOf(val));
+//            }
+//        }
 
 
     }

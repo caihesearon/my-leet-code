@@ -43,7 +43,9 @@ package leetcode.editor.cn;
 
 //岛屿的最大面积
 
-public class P695_岛屿的最大面积 {
+import leetcode.editor.cn.classification.DFS;
+
+public class P695_岛屿的最大面积 implements DFS {
     public static void main(String[] args) {
         Solution solution = new P695_岛屿的最大面积().new Solution();
         int[][] grid = {

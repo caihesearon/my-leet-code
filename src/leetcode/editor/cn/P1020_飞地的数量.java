@@ -45,7 +45,9 @@ package leetcode.editor.cn;
 
 //飞地的数量
 
-public class P1020_飞地的数量 {
+import leetcode.editor.cn.classification.DFS;
+
+public class P1020_飞地的数量 implements DFS {
     public static void main(String[] args) {
         Solution solution = new P1020_飞地的数量().new Solution();
         int[][] grid = {
