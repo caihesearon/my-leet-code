@@ -49,9 +49,13 @@ package leetcode.editor.cn;
 
 //判断二分图
 
+import leetcode.editor.cn.classification.BFS;
 import leetcode.editor.cn.classification.图;
 
-public class P785_判断二分图 implements 图 {
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class P785_判断二分图 implements 图, BFS {
     public static void main(String[] args) {
         Solution solution = new P785_判断二分图().new Solution();
 
@@ -72,11 +76,35 @@ public class P785_判断二分图 implements 图 {
             // 遍历所有没有被访问的节点
             for (int i = 0; i < visited.length; i++) {
                 if (!visited[i]) {
-                    traverse(graph, visited, colors, i);
+                    //traverse(graph, visited, colors, i);
+                    bfs(graph, visited, colors, i);
                 }
             }
             return res;
         }
+
+
+        private void bfs(int[][] graph, boolean[] visited, boolean[] colors, int pos) {
+            Queue<Integer> queue = new LinkedList<>();
+            queue.offer(pos);
+
+            while (!queue.isEmpty()) {
+                Integer poll = queue.poll();
+                visited[poll] = true;
+                for (int nextPos : graph[poll]) {
+                    // 开始判断
+                    if (visited[nextPos]) {
+                        if (colors[nextPos] == colors[poll]) {
+                            res = false;
+                        }
+                    } else {
+                        colors[nextPos] = !colors[pos];
+                        queue.offer(nextPos);
+                    }
+                }
+            }
+        }
+
 
         private void traverse(int[][] graph, boolean[] visited, boolean[] colors, int pos) {
             if (!res) {
@@ -89,7 +117,7 @@ public class P785_判断二分图 implements 图 {
                     if (colors[nextPos] == colors[pos]) {
                         res = false;
                     }
-                }else {
+                } else {
                     // 相邻节点没有被访问 设置相邻节点颜色
                     colors[nextPos] = !colors[pos];
                     traverse(graph, visited, colors, nextPos);
