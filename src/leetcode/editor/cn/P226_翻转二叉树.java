@@ -30,8 +30,9 @@ package leetcode.editor.cn;
 //翻转二叉树
 
 import Entity.TreeNode;
+import leetcode.editor.cn.classification.二叉树;
 
-public class P226_翻转二叉树 {
+public class P226_翻转二叉树 implements 二叉树 {
     public static void main(String[] args) {
         Solution solution = new P226_翻转二叉树().new Solution();
 
