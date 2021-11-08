@@ -49,9 +49,10 @@ public class P105_从前序与中序遍历序列构造二叉树 implements 二�
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+        // https://mp.weixin.qq.com/s/OlpaDhPDTJlQ5MJ8tsARlA
         public TreeNode buildTree(int[] preorder, int[] inorder) {
             TreeNode root = deal(preorder, 0, preorder.length - 1,
-                    inorder, 0, inorder.length);
+                    inorder, 0, inorder.length - 1);
             return root;
         }
 
