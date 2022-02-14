@@ -37,9 +37,11 @@ package leetcode.editor.cn;
 
 //有序数组中的单一元素
 
+import leetcode.editor.cn.classification.二分查找;
 import leetcode.editor.cn.classification.异或;
+import leetcode.editor.cn.level.简单;
 
-public class P540_有序数组中的单一元素 implements 异或 {
+public class P540_有序数组中的单一元素 implements 异或, 二分查找, 简单 {
     public static void main(String[] args) {
         Solution solution = new P540_有序数组中的单一元素().new Solution();
         int i = solution.singleNonDuplicate(new int[]{3, 3, 4, 5, 5});
