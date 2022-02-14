@@ -48,8 +48,9 @@ package leetcode.editor.cn;
 //岛屿数量
 
 import leetcode.editor.cn.classification.DFS;
+import leetcode.editor.cn.level.中等;
 
-public class P200_岛屿数量 implements DFS {
+public class P200_岛屿数量 implements DFS, 中等 {
     public static void main(String[] args) {
         Solution solution = new P200_岛屿数量().new Solution();
 
